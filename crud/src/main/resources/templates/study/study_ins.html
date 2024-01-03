@@ -10,41 +10,24 @@
 
     <title>Home!</title>
 </head>
-<body>
+<body class="text-center">
 
 <!-- 헤더 위치 -->
-
 <header th:insert="~{/fragment/header.html::header_f}"></header>
 
+
 <main>
-    <div class="container">
-        <button type="button" onclick="location.href='/study/insert'">등록하기</button>
-        <div class="row mb-2">
-            <div class="col">Key_Id(Vo)</div>
-            <div class="col">공부일자</div>
-            <div class="col">공부내용</div>
-            <div class="col">등록일자</div>
-            <div class="col">수정</div>
-            <div class="col">삭제</div>
-        </div>
+    <form name="frm_study_mod" action="/study/insert" method="post">
+        <div>Study_day : <input type="text" name="study_day" value=""></div><br>
+        <div>Contents : <input type="text" name="contents" value="" size="70"></div>
 
-        <th:block th:each="study : ${list}">
-            <div class="row mb-2">
-                <div class="col" th:text="${study.getKey_id()}"></div>
-                <div class="col" th:text="${study.getStudy_day()}"></div>
-                <div class="col" th:text="${study.getContents()}"></div>
-                <div class="col" th:text="${study.getReg_day()}"></div>
-                <div class="col"><a th:href="@{/study/modify(key_id=${study.getKey_id()})}">수정</a></div>
-                <div class="col"><a th:href="@{/study/delete(key_id=${study.getKey_id()})}">삭제</a></div>
-            </div>
-        </th:block>
-    </div>
-
+        <input type="submit" value="등록하기">
+    </form>
 </main>
 
 <!-- 푸터 위치 -->
-
 <footer th:insert="~{/fragment/footer.html::footer_f}"></footer>
+
 
 <!-- Optional JavaScript; choose one of the two! -->
 

@@ -19,5 +19,6 @@ CREATE TABLE study_member(
     NAME VARCHAR(100),
     ROLE VARCHAR(100),
     reg_day DATETIME DEFAULT CURRENT_TIMESTAMP,
+    email varchar(200),
     PRIMARY KEY (MEMBER_ID)
 );
